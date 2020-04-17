@@ -1,6 +1,8 @@
 var A, B, C, R1, R2, SIGNO, ALFA, BETA, A_0, A_1;
 
 function resolver() {
+  debugger;
+
   SIGNO = document.getElementById("var-sign").value;
   A_0 = getNumericInput("a_0");
   A_1 = getNumericInput("a_1");
@@ -9,7 +11,7 @@ function resolver() {
   //Los signos cambian al reordenar la ecuación e igualarla a 0.
   A = getNumericInput("var-a") || 1;
   B = -(getNumericInput("var-b") || 1);
-  C = -parseInt(SIGNO + getNumericInput("var-c") || 1);
+  C = -parseInt(SIGNO + (getNumericInput("var-c") || 1));
 
   obtenerRaices();
 }
@@ -20,14 +22,20 @@ function getNumericInput(id) {
 
 function obtenerRaices() {
   //( -b    +      raíz de B^2           - 4A*C         ) / (2 * A)
-  R1 = (-B + Math.sqrt(Math.pow(B, 2) - 4 * (A * C))) / (2 * A);
-  R2 = (-B - Math.sqrt(Math.pow(B, 2) - 4 * (A * C))) / (2 * A);
+  R1 = (-B + (Math.sqrt(Math.pow(B, 2) - 4 * (A * C)))) / (2 * A);
+  R2 = (-B - (Math.sqrt(Math.pow(B, 2) - 4 * (A * C)))) / (2 * A);
 
-  document.getElementById("r1").textContent = R1;
-  document.getElementById("r2").textContent = R2;
-
-  obtenerAlfa();
-  obtenerPuntos();
+  if (isNaN(R1) || isNaN(R2)) {
+    document.getElementById('error').textContent = 'No existe.';
+    reset();    
+  } 
+  else {
+    document.getElementById('error').textContent = '';
+    document.getElementById("r1").textContent = R1.toFixed(4);
+    document.getElementById("r2").textContent = R2.toFixed(4);
+    obtenerAlfa();
+    obtenerPuntos();
+  }
 }
 
 function obtenerAlfa() {
@@ -82,7 +90,7 @@ function obtenerPuntos() {
             ${i}
           </td>
           <td>
-            ${a_n}
+            ${a_n.toFixed(4)}
           </td>
         <tr/>`
     }
@@ -91,3 +99,21 @@ function obtenerPuntos() {
   }
 }
 
+function reset() {
+  debugger;
+  const Canvas = document.getElementById("canvas");
+  const context = Canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  let inputs = document.querySelectorAll('input');
+  inputs.forEach(element => {
+    element.value = '';
+  });
+
+  let raices = document.querySelectorAll('.raiz:not(.error)');
+  raices.forEach(element => {
+    element.textContent = '';
+  });
+  
+  document.getElementById("body-valores").innerHTML = '';
+}

@@ -71,3 +71,7 @@ sub {
   justify-content: center;
   font-size: 2em;
 }
+
+.error {
+    color: red;
+}
