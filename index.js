@@ -68,18 +68,18 @@ function obtenerPuntos() {
     let inicio = true;
     document.getElementById("body-valores").innerHTML = '';
 
-    for (let i = -5; i < 5; i++) {
+    for (let i = -5; i <= 5; i++) {
 
       //403 el punto medio del plano.
-      //+5 * 80 porque cada unidad del plano tiene 80pxl.
+      //+5 * 80.5 porque cada unidad del plano tiene 80.5pxl.
 
       const a_n = obtenerA_N(i);
 
       if (inicio) {
-        context.moveTo(1, (403 - a_n  * 80));
+        context.moveTo(1, (403 - a_n  * 80.5));
         inicio = false;
       } else {
-        context.lineTo((i + 5)  * 80, (403 - a_n  * 80));
+        context.lineTo((i + 5)  * 80.5, (403 - a_n  * 80.5));
       }
 
       document.getElementById("body-valores").innerHTML += `
