@@ -1,8 +1,6 @@
 var A, B, C, R1, R2, SIGNO, ALFA, BETA, A_0, A_1;
 
 function resolver() {
-  debugger;
-
   SIGNO = document.getElementById("var-sign").value;
   A_0 = getNumericInput("a_0");
   A_1 = getNumericInput("a_1");
@@ -100,7 +98,7 @@ function obtenerPuntos() {
 }
 
 function reset() {
-  debugger;
+  
   const Canvas = document.getElementById("canvas");
   const context = Canvas.getContext("2d");
   context.clearRect(0, 0, canvas.width, canvas.height);
