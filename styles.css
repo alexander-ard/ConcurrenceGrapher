@@ -1,44 +1,73 @@
 body {
-    padding: 2em 5% 2em 5%;
-    font-family: Century Gothic;
-    font-size: 2em;
+  padding: 2em 5% 2em 5%;
+  font-family: Century Gothic;
+  font-size: 2em;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
 }
 
 .cont {
-    display: flex;
-    padding: 0 0.25em 0 0.25em;
+  display: flex;
+  padding: 0 0.25em 0 0.25em;
 }
 
 .cont-main {
-    padding: 1em 0 0;
+  padding: 1em 0 0;
 }
 
 .variable-input {
-    padding: 2px;
-    font-size: 1em;
-    width: 2.5em;
-    text-align: right;
+  padding: 2px;
+  font-size: 1em;
+  width: 2.5em;
+  text-align: right;
 }
 
 select.variable-input {
-    text-align: center;
-    width: 1.5em;
+  text-align: center;
+  width: 1.5em;
 }
 
 sub {
-    vertical-align: sub;
-    font-size: smaller;
+  vertical-align: sub;
+  font-size: smaller;
 }
 
 .cont-button {
-    padding-top: 0.75em;
+  padding-top: 0.75em;
+  justify-content: center;
 }
 
 .btn.btn-primary {
-    font-size: 0.75em;
+  font-size: 0.75em;
 }
 
 .cont-border {
-    border: 2px solid #000;
-    border-radius: 5%;
+  border: 2px solid #000;
+  border-radius: 5%;
+}
+
+.cont-vert {
+  justify-content: center;
+  flex-flow: row;
+}
+
+.tabla-valores {
+  border: 1px solid;
+  width: 100%;
+}
+.tabla-valores td,
+.tabla-valores th {
+  border: 1px solid rgb(68, 68, 68);
+}
+
+.cont-col {
+  flex-direction: column;
+}
+
+.raiz {
+  justify-content: center;
+  font-size: 2em;
 }

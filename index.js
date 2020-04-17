@@ -23,6 +23,9 @@ function obtenerRaices() {
   R1 = (-B + Math.sqrt(Math.pow(B, 2) - 4 * (A * C))) / (2 * A);
   R2 = (-B - Math.sqrt(Math.pow(B, 2) - 4 * (A * C))) / (2 * A);
 
+  document.getElementById("r1").textContent = R1;
+  document.getElementById("r2").textContent = R2;
+
   obtenerAlfa();
   obtenerPuntos();
 }
@@ -44,7 +47,7 @@ function obtenerA_N(n) {
       return ALFA * Math.pow(R1, n) + n * (BETA * Math.pow(R2, n));
     }
   } catch {
-    return `No existe en n = ${n}`;
+    return 0; //No existe;;
   }
 }
 
@@ -57,20 +60,31 @@ function obtenerPuntos() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.beginPath();
     let inicio = true;
+    document.getElementById("body-valores").innerHTML = '';
 
     for (let i = -5; i < 5; i++) {
 
       //403 el punto medio del plano.
       //+5 * 80 porque cada unidad del plano tiene 80pxl.
 
+      const a_n = obtenerA_N(i);
+
       if (inicio) {
-        context.moveTo(1, (403 - obtenerA_N(i)  * 80));
+        context.moveTo(1, (403 - a_n  * 80));
         inicio = false;
       } else {
-        context.lineTo((i + 5)  * 80, (403 - obtenerA_N(i)  * 80));
+        context.lineTo((i + 5)  * 80, (403 - a_n  * 80));
       }
 
-      console.log(i, obtenerA_N(i));
+      document.getElementById("body-valores").innerHTML += `
+        <tr>
+          <td>
+            ${i}
+          </td>
+          <td>
+            ${a_n}
+          </td>
+        <tr/>`
     }
 
     context.stroke();

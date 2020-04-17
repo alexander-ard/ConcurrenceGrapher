@@ -20,77 +20,109 @@
     </h1>
 
     <div class="cont-main">
-      <form action="" method="GET" onsubmit="resolver(); return false;">
+      <div class="cont cont-vert">
         <div class="cont">
-          <input
-            type="number"
-            class="form-control variable-input"
-            id="var-a"
-            placeholder="1"
-          />
-          <span class="coeficiente"> a<sub>n</sub> </span>
-          =
-          <div class="cont">
-            <input
-              type="number"
-              class="form-control variable-input"
-              id="var-b"
-              value="7"
-              placeholder="1"
-            />
-            <span class="coeficiente"> a<sub>n-1</sub> </span>
-          </div>
-          <div class="cont">
-            <select class="form-control variable-input" id="var-sign">
-              <option value="+">+</option>
-              <option value="-" selected="selected">-</option>
-            </select>
-          </div>
-          <div class="cont">
-            <input
-              type="number"
-              class="form-control variable-input"
-              id="var-c"
-              value="10"
-              placeholder="1"
-            />
-            <span class="coeficiente"> a<sub>n-2</sub> </span>
-          </div>
+          <form action="" method="GET" onsubmit="resolver(); return false;">
+            <div class="cont">
+              <input
+                type="number"
+                class="form-control variable-input"
+                id="var-a"
+                placeholder="1"
+              />
+              <span class="coeficiente"> a<sub>n</sub> </span>
+              =
+              <div class="cont">
+                <input
+                  type="number"
+                  class="form-control variable-input"
+                  id="var-b"
+                  placeholder="1"
+                />
+                <span class="coeficiente"> a<sub>n-1</sub> </span>
+              </div>
+              <div class="cont">
+                <select class="form-control variable-input" id="var-sign">
+                  <option value="+" selected="selected">+</option>
+                  <option value="-">-</option>
+                </select>
+              </div>
+              <div class="cont">
+                <input
+                  type="number"
+                  class="form-control variable-input"
+                  id="var-c"
+                  placeholder="1"
+                />
+                <span class="coeficiente"> a<sub>n-2</sub> </span>
+              </div>
+            </div>
+            <div class="cont cont-button">
+              <span class="coeficiente"> a<sub>0</sub> </span>
+              =
+              <div class="cont">
+                <input
+                  type="number"
+                  class="form-control variable-input"
+                  id="a_0"
+                  required
+                />
+              </div>
+              <span class="coeficiente"> a<sub>1</sub> </span>
+              =
+              <div class="cont">
+                <input
+                  type="number"
+                  class="form-control variable-input"
+                  id="a_1"
+                  required
+                />
+              </div>
+            </div>
+            <div class="cont cont-button">
+              <button class="btn btn-primary" type="submit">
+                Resolver
+              </button>
+            </div>
+            <div class="cont cont-button cont-col">
+              <div class="cont raiz">
+                R1 = 
+                <span  id="r1"></span>
+              </div>
+              <div class="cont raiz">
+                R2 = 
+                <span id="r2"></span>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="cont cont-button">
-          <span class="coeficiente"> a<sub>0</sub> </span>
-          =
-          <div class="cont">
-            <input
-              type="number"
-              class="form-control variable-input"
-              id="a_0"
-              value="2"
-              required
-            />
-          </div>
-          <span class="coeficiente"> a<sub>1</sub> </span>
-          =
-          <div class="cont">
-            <input
-              type="number"
-              class="form-control variable-input"
-              id="a_1"
-              value="1"
-              required
-            />
-          </div>
-        </div>
-        <div class="cont cont-button">
-          <button class="btn btn-primary" type="submit">
-            Resolver
-          </button>
-        </div>
-      </form>
-    </div>
 
-    <canvas id="canvas" width="806" height="806"  style="background: url('./fondo.jpg')">
-      CANVAS NOT SUPPORTED IN THIS BROWSER!
-    </canvas>
+        <div class="cont">
+          <canvas
+            id="canvas"
+            width="806"
+            height="806"
+            style="background: url('./fondo.jpg');"
+          ></canvas>
+        </div>
+
+        <div class="cont cont-col">
+          <div class="cont">
+            <h3>Tabla de valores</h3>
+          </div>
+          <div class="cont">
+            <table class="tabla-valores">
+              <thead>
+                <th>n</th>
+                <th>
+                  <span class="coeficiente"> a<sub>n</sub> </span>
+                </th>
+              </thead>
+              <tbody id="body-valores"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
