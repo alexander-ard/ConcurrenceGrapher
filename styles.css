@@ -1,0 +1,44 @@
+body {
+    padding: 2em 5% 2em 5%;
+    font-family: Century Gothic;
+    font-size: 2em;
+}
+
+.cont {
+    display: flex;
+    padding: 0 0.25em 0 0.25em;
+}
+
+.cont-main {
+    padding: 1em 0 0;
+}
+
+.variable-input {
+    padding: 2px;
+    font-size: 1em;
+    width: 2.5em;
+    text-align: right;
+}
+
+select.variable-input {
+    text-align: center;
+    width: 1.5em;
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
+}
+
+.cont-button {
+    padding-top: 0.75em;
+}
+
+.btn.btn-primary {
+    font-size: 0.75em;
+}
+
+.cont-border {
+    border: 2px solid #000;
+    border-radius: 5%;
+}
